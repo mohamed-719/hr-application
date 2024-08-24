@@ -1,0 +1,56 @@
+﻿@model Employee
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .input-validation-error {
+            border: 1px solid darkred;
+            background-color: #ffcccb;
+        }
+
+        .validation-summary-errors {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form asp-action="Employees" method="post">
+        <div asp-validation-summary="All"></div>
+        <h1>Hello From Employees View</h1>
+        <!-- the attrebute is asp-validation-summary make display list all error -->
+        <div class="form-group">
+            <label asp-for="EmployeeName">Empoyees Name</label><br />
+            <input asp-for="EmployeeName" calss="from-control-sm" placeholder="Enter Your Full Name "/>
+        </div>   
+        <div class="form-group">
+            <label asp-for="Department">Department</label><br />
+            <select asp-for="Department" calss="form-control from-control-sm form-selec" >
+                <option></option>
+                <option value="operations">Operations</option>
+                <option value="IT">Information Tech</option>
+                <option value="finance">Finance</option>
+                <option value="finance">HR</option>
+            </select>
+        </div>       
+        <div class="form-check form-check-inline" >
+            <input type="checkbox" class="form-check-input" asp-for="isActive" />
+            <label class="form-check-label" asp-for="isActive"> is Active Name?</label>
+        </div>
+        <div class="form-group">
+            <label asp-for="JobTitle">Job Title</label><br />
+            <input type="text" asp-for="JobTitle" calss="form-control from-control-sm" />
+        </div>    
+        <div class="form-group">
+            <label asp-for="BirthDate">Birt hDate</label><br />
+            <input type="date" asp-for="BirthDate" calss="form-control from-control-sm" />
+        </div>
+        <div class="form-group">
+            <label asp-for="EmailAddress">Email Address</label><br />
+            <input type="email" asp-for="EmailAddress" calss="form-control from-control-sm"/>
+        </div> 
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
